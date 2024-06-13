@@ -44,20 +44,46 @@ export default function TabLayout() {
       <Tabs.Screen
         name="form"
         options={{
-          // title: "Form",
           headerShown: true,
           headerLeft: () => <LeftArrowButton />,
           headerRight: () => <RightArrowButton />,
-          headerTitle: () => <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>עמדת טעינה</Text>,
+          headerTitle: () => (
+            <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>
+              עמדת טעינה
+            </Text>
+          ),
           headerTitleAlign: "center",
           headerStyle: { backgroundColor: "#000" },
-          
 
           tabBarStyle: { display: "none" },
-          
+
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "create" : "create-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="ticket"
+        options={{
+          headerShown: true,
+          // headerLeft: () => <LeftArrowButton />,
+          headerRight: () => <RightArrowButton />,
+          headerTitle: () => (
+            <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>
+              סיכום קריאה
+            </Text>
+          ),
+          headerTitleAlign: "center",
+          headerStyle: { backgroundColor: "#000" },
+
+          tabBarStyle: { display: "none" },
+
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "ticket" : "ticket-outline"}
               color={color}
             />
           ),

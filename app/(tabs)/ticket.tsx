@@ -10,12 +10,17 @@ import {
   View,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import ConfirmModal from "@/components/ConfirmModal";
 
 export default function Ticket() {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const toggleModal = () => setIsModalVisible(!isModalVisible);
+
   return (
     <ScrollView>
+      <ConfirmModal modalVisible={isModalVisible} toggleModal={toggleModal} />
       <View style={styles.container}>
         <Text style={styles.bigText}>עמדת טעינה</Text>
         <Text style={styles.smallText}>
@@ -93,11 +98,7 @@ export default function Ticket() {
           style={styles.gradient}
           start={[0, 0]}
           end={[1, 1]}>
-          <Pressable
-            style={styles.button}
-            onPress={() => {
-              console.log("Pressed");
-            }}>
+          <Pressable style={styles.button} onPress={toggleModal}>
             <Text style={styles.buttonText}>אישור ושליחה</Text>
           </Pressable>
         </LinearGradient>
